@@ -4,6 +4,7 @@
 	import (
 		"fmt"
 		"net/http"
+		"time"
 	)
 
 	func main() {
@@ -21,7 +22,10 @@
 		}
 
 		for  l := range c {
-			go checkLink(l, c)
+			go func (link string) {
+				time.Slee=pop(5 * time.Second)
+				checkLink(link, c)
+			}(l)
 		}
 	}
 
@@ -36,3 +40,5 @@
 				fmt.Println(link, "is up!")
 				c <- link
 		}
+
+
